@@ -7,7 +7,7 @@ const MovieApp = () => {
 
   const fetchData = async () => {
     try {
-      const response = await fetch('https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&page=${page}');
+      const response = await fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&page=${page}`);
       const data = await response.json();
       setMovies(data.results);
     } catch (error) {
@@ -36,7 +36,7 @@ const MovieApp = () => {
         {movies.map(movie => (
           <div key={movie.id}>
             <h3>{movie.title}</h3>
-            <img src={'https://image.tmdb.org/t/p/w500/${movie.poster_path'} alt={movie.title} />
+            <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={movie.title} />
           </div>
         ))}
       </div>
